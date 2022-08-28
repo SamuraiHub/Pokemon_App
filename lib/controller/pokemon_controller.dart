@@ -7,7 +7,7 @@ import '../data/repository/pokemon_repository_impl.dart';
 // for getting pokemons (1-50)
 class PokemonController extends GetxController {
   var isLoading = true.obs;
-  List<PokemonModel> pokemonList = <PokemonModel>[].obs;
+  RxList<PokemonModel> pokemonList = <PokemonModel>[].obs;
 
   ///Method used to get all pokemons from 1-50
   Future<void> getFirst50Pokemons() async {
@@ -23,7 +23,9 @@ class PokemonController extends GetxController {
           print(exception.message);
         },
         (pokemons) {
-          pokemonList = pokemons;
+          pokemonList.value = pokemons;
+          List<PokemonModel> PokemonList = Get.find();
+          if (PokemonList.isEmpty) PokemonList.addAll(pokemons);
         },
       );
 

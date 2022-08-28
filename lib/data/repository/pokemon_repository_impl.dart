@@ -18,6 +18,7 @@ class PokemonRepositoryImpl {
   Future<Either<Failure, List<PokemonModel>>> getPokemons() async {
     try {
       final results = await remoteDataSource.getPokemons();
+
       return Right(results);
     } on ServerException {
       return Left(ServerFailure(''));

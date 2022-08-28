@@ -29,5 +29,7 @@
   "special-defense": "Özel-Savunma",
   "speed": "Hız",
   "About":  "Hakkında",
-  "Base Stats": "Temel İstatistikler"
+  "Base Stats": "Temel İstatistikler",
+  "Search": "Arama",
+  "Reset": "Sıfırla"
 }
